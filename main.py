@@ -56,8 +56,13 @@ class BookInfo:
         self.menu()  # Return to the menu after the operation
 
     def view(self):
-        # This function will be implemented later for viewing all books
-        pass
+       books = self.db.view()  # Assuming `view()` returns a list of tuples
+        if books:
+            for book in books:
+                print(f"Book ID: {book[0]}, Title: {book[1]}, Author: {book[2]}, Copies Available: {book[3]}")
+        else:
+            print("No books available.")
+        self.menu()
 
     def delete(self):
         # This function will be implemented later for deleting a book
