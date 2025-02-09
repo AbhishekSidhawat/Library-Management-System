@@ -34,8 +34,13 @@ class DBconnect:
             return 1
 
     def view(self):
-        # This method will be implemented later to view all books from the database
-        pass
+        try: 
+            sql = "SELECT * FROM books"  # Assuming 'books' table is inside 'library' database
+            self.cursor.execute(sql)
+            return self.cursor.fetchall() 
+        except:
+            print(f"No book available")
+            return [] 
 
     def delete(self):
         # This method will be implemented later to delete a book from the database
